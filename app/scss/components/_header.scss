@@ -1,0 +1,22 @@
+@use "../util" as u;
+
+.header {
+  margin-top: u.rem(36);
+  @include u.breakpoint(medium) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__tittle {
+  }
+
+  &__subtittle {
+    font-size: u.rem(14);
+    font-weight: 700;
+    color: var(--text-color1);
+  }
+
+  &__toggle {
+  }
+}

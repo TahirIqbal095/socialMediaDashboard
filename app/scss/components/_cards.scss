@@ -1,0 +1,156 @@
+@use "../util" as u;
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: u.rem(30);
+
+  @include u.breakpoint(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include u.breakpoint(large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--text-color2);
+  padding: u.rem(25);
+  text-align: center;
+  border-radius: u.rem(5);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--card-hover);
+    transition-duration: 250ms;
+  }
+
+  &--facebook {
+    border-top: u.rem(5) solid var(--facebook);
+  }
+
+  &--instagram {
+    position: relative;
+    overflow: hidden;
+    padding-top: u.rem(30);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: u.rem(5);
+      width: 100%;
+      background: linear-gradient(
+        225deg,
+        var(--instagram-start),
+        var(--instagram-end)
+      );
+    }
+  }
+
+  &--twitter {
+    border-top: u.rem(5) solid var(--twitter);
+  }
+
+  &--youtube {
+    border-top: u.rem(5) solid var(--youtube);
+  }
+
+  &__icon {
+    margin-right: u.rem(8);
+  }
+
+  &__platform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: u.rem(20);
+    margin-bottom: u.rem(28);
+  }
+
+  &__username {
+    color: var(--text-color1);
+    font-size: u.rem(12);
+    font-weight: 700;
+  }
+
+  &__followers {
+    color: var(--text-color2);
+    margin-bottom: u.rem(25);
+  }
+
+  &__count {
+    color: var(--text-color2);
+    font-weight: 700;
+    letter-spacing: u.rem(-2);
+    line-height: 1;
+    margin-bottom: u.rem(4);
+    align-self: end;
+
+    &--big {
+      font-size: u.rem(56);
+    }
+
+    &--small {
+      font-size: u.rem(32);
+      margin: 0;
+    }
+  }
+
+  &__label {
+    color: var(--dark-text1);
+    font-size: u.rem(12);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: u.rem(5);
+  }
+
+  &__change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: u.rem(12);
+    font-weight: 700;
+    align-self: end;
+
+    &--up {
+      color: var(--limegreen);
+    }
+
+    &--down {
+      color: var(--brightred);
+    }
+
+    &--align-right {
+      justify-self: end;
+    }
+  }
+
+  &__number {
+    margin-left: u.rem(4);
+  }
+
+  //cards overview
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: start;
+    align-items: center;
+    gap: u.rem(23);
+
+    img {
+      justify-self: end;
+    }
+  }
+
+  &__subtitle {
+    color: var(--text-color1);
+    font-size: u.rem(14);
+    font-weight: 700;
+  }
+}
